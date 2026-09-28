@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>About EJ Moreland</title>
     <meta name="description" content="About EJ Moreland: a games production, program, and operations leader writing about work, judgment, and learning in public.">
-    <meta name="theme-color" content="#fbf4e7">
+    <meta name="theme-color" content="#311640">
     <link rel="canonical" href="https://ejmoreland.net/about/">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
@@ -21,17 +21,17 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://ejmoreland.net/assets/social-card.png">
     <meta name="twitter:image:alt" content="Abstract plum, cream, periwinkle, yellow, red, and navy paper forms.">
-    <link rel="stylesheet" href="../styles.css?rev=20260913-about-refinement">
+    <link rel="stylesheet" href="../styles.css?rev=20260927-site-consistency">
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="site-shell">
       <header class="masthead">
         <a class="wordmark" href="../index.html" aria-label="EJ Moreland home">EJ Moreland</a>
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation"><span>Menu</span><span aria-hidden="true">+</span></button>
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><span class="menu-icon" aria-hidden="true"></span></button>
         <nav id="site-navigation" aria-label="Primary navigation">
-          <a href="../essays/">Essays</a>
-          <a href="index.html" aria-current="page">About</a>
+          <a href="../essays/" aria-label="Essays" title="Essays"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 5.2c3.1-.8 6-.3 8.5 1.5v13c-2.5-1.8-5.4-2.3-8.5-1.5zM20.5 5.2c-3.1-.8-6-.3-8.5 1.5v13c2.5-1.8 5.4-2.3 8.5-1.5z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></a>
+          <a href="index.html" aria-current="page" aria-label="About EJ" title="About EJ"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="7.5" r="3.3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4.8 20c.8-3.8 3.3-5.8 7.2-5.8s6.4 2 7.2 5.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
         </nav>
       </header>
 
@@ -45,8 +45,12 @@
           <section class="about-story" id="about-story" aria-label="About EJ Moreland">
             <div class="reading-meta">
               <a href="../index.html">← Home</a>
-              <button class="reading-mode" type="button" aria-pressed="false">Dim the page</button>
+            <button class="reading-mode" type="button" aria-label="Use dim reading palette" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path data-reading-icon d="M12 3v2m0 14v2M3 12h2m14 0h2M5.64 5.64l1.42 1.42m9.88 9.88 1.42 1.42m0-12.72-1.42 1.42m-9.88 9.88-1.42 1.42M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="visually-hidden">Toggle reading palette</span></button>
             </div>
+            <figure class="about-feature-art">
+              <img src="../assets/about-math-mystery.png" alt="A glowing crucible and fine brass instruments sit on a dark workbench, with delicate circuit traces and mathematical diagrams worked into their surfaces.">
+              <figcaption>A crucible for new instruments</figcaption>
+            </figure>
             <div class="about-column">
               <p class="about-waypoint">The work</p>
               <p>I’m EJ Moreland. I’ve worked in games since August 1994, with 15+ years in production, program, and operations roles where the plan rarely survives intact for very long.</p>
@@ -116,10 +120,6 @@
 
       <footer><span>EJ Moreland</span><span>About</span></footer>
     </div>
-    <aside class="contact-dock" aria-label="Contact EJ">
-      <a class="contact-dock-linkedin" href="https://www.linkedin.com/in/ej-moreland-a79a42" aria-label="View EJ Moreland’s professional background on LinkedIn"><img class="linkedin-logo" src="../assets/linkedin-in-opaque-white.png" width="635" height="540" alt=""></a>
-      <button class="contact-dock-message" type="button" data-contact-drawer-trigger aria-label="Open message form" aria-haspopup="dialog" aria-controls="contact-drawer"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 5.5h17v13h-17zM4 6l8 6 8-6"/></svg></button>
-    </aside>
-    <script src="../script.js?rev=20260913-about-refinement"></script>
+    <script src="../script.js?rev=20260927-site-consistency"></script>
   </body>
 </html>

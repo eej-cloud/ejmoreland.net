@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Learning Where My Judgment Stops — EJ Moreland</title>
     <meta name="description" content="A personal investigation into what it means to remain responsible for decisions when AI helps generate questions, find evidence, challenge conclusions, and cross expertise boundaries the human collaborator cannot fully evaluate alone.">
-    <meta name="theme-color" content="#542567">
+    <meta name="theme-color" content="#311640">
     <link rel="canonical" href="https://ejmoreland.net/essays/learning-where-my-judgment-stops.html">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
@@ -22,36 +22,284 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://ejmoreland.net/assets/social-card.png">
     <meta name="twitter:image:alt" content="Abstract plum, cream, periwinkle, yellow, red, and navy paper forms.">
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../styles.css?rev=20260927-site-consistency">
+  <style>
+    :root {
+      --plum: #542567;
+      --deep-plum: #311640;
+      --paper: #f5f1e8;
+      --paper-white: #fbf8f1;
+      --ink: #292637;
+      --muted: #675f6b;
+      --rule: #d9d0d8;
+      --cool: #d8e5e2;
+      --cool-strong: #c8dcd8;
+      --cool-ink: #23484c;
+      --warm-accent: #dfbd72;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); }
+    .masthead { display: block; min-height: 0; color: var(--paper-white); background: var(--deep-plum); }
+    .topline, .hero, .reading, .image-pool, .decision-point { width: min(100% - 48px, 1240px); margin-inline: auto; }
+    .topline { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 22px; border-bottom: 1px solid rgba(251,248,241,.2); }
+    .wordmark { color: inherit; font: 600 18px/1 var(--serif); letter-spacing: -.03em; text-decoration: none; }
+    .topnav { display: flex; align-items: center; gap: 22px; }
+    .topnav a { color: rgba(251,248,241,.78); font-size: 11px; letter-spacing: .12em; text-decoration: none; text-transform: uppercase; }
+    .topnav svg { display: block; width: 16px; height: 16px; }
+    .hero { display: grid; min-height: 0; grid-template-columns: minmax(0, 1.12fr) minmax(260px, .88fr); align-items: center; gap: clamp(50px, 8vw, 112px); padding: 65px 0 78px; }
+    .issue { margin: 0 0 18px; color: #d6c3df; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
+    h1 { max-width: 730px; margin: 0; color: var(--paper-white); font: 400 clamp(52px, 7.5vw, 92px)/.93 var(--serif); letter-spacing: -.06em; }
+    .hero h1 { max-width: 730px; }
+    .dek { max-width: 660px; margin: 22px 0 0; color: #e8ddea; font: 400 clamp(18px, 2vw, 22px)/1.43 var(--serif); }
+    .dek::after { content: ""; display: block; width: 45px; height: 2px; margin-top: 22px; background: var(--warm-accent); opacity: .85; }
+    .terms { min-height: 230px; padding: 10px 0 10px 26px; border-left: 1px solid rgba(203,186,221,.34); display: flex; flex-direction: column; justify-content: center; }
+    .terms-label { margin: 0 0 16px; color: #d6c3df; font-size: 10px; font-weight: 650; letter-spacing: .14em; text-transform: uppercase; }
+    .term { display: block; width: max-content; max-width: 100%; color: var(--paper-white); line-height: .98; }
+    .term:nth-of-type(2) { margin-left: 8px; font: italic 400 clamp(30px, 4vw, 48px)/1 var(--serif); }
+    .term:nth-of-type(3) { margin: 10px 0 0 44px; color: #d8c6e0; font: 500 12px/1.25 var(--sans); letter-spacing: .15em; text-transform: uppercase; }
+    .term:nth-of-type(4) { margin: 9px 0 0 20px; font: italic 400 clamp(27px, 3.2vw, 39px)/1 var(--serif); }
+    .term:nth-of-type(5) { margin: 10px 0 0 72px; color: #e4d7e8; font: 500 11px/1.25 var(--sans); letter-spacing: .17em; text-transform: uppercase; }
+    .reading { padding: 56px 0 68px; }
+    .section-label { margin: 0 0 28px; color: var(--plum); font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .article-layout { display: grid; grid-template-columns: minmax(0, 700px) 208px; gap: clamp(68px, 8vw, 112px); justify-content: center; align-items: start; }
+    .essay { min-width: 0; font: 400 21px/1.72 var(--serif); }
+    .essay p { margin: 0 0 1.42em; }
+    .essay .lead { margin-bottom: 1.42em; font-size: 27px; line-height: 1.42; }
+    .essay .lead::first-letter { float: left; margin: .045em .12em 0 0; color: var(--plum); font: 400 2.15em/.78 var(--serif); }
+    .paired { border-radius: .14em; transition: background-color .28s ease, box-shadow .28s ease; }
+    [data-bts="on"] .paired.is-current { background: rgba(178,207,202,.62); box-shadow: 0 0 0 .12em rgba(178,207,202,.62); }
+    .essay-art { margin: 2em 0 2.25em; }
+    .essay-art img { border-radius: 2px 38px 2px 2px; }
+    .essay-art img { display: block; width: 100%; aspect-ratio: 1.68 / 1; object-fit: cover; object-position: center 56%; border: 7px solid var(--paper-white); outline: 1px solid rgba(35,72,76,.18); }
+    .essay-art figcaption { margin-top: 11px; color: var(--cool-ink); font: italic 17px/1.25 var(--serif); }
+    .notes { position: relative; min-width: 0; pointer-events: none; }
+    .note { position: absolute; left: 0; width: 100%; margin: 0; color: var(--cool-ink); background: rgba(200,220,216,.82); border: 1px solid rgba(35,72,76,.16); border-radius: 3px 17px 3px 15px; pointer-events: auto; transition: top .32s cubic-bezier(.22,1,.36,1), background-color .25s ease; }
+    .note summary { display: flex; min-height: 74px; align-items: center; padding: 13px 27px 15px 15px; list-style: none; cursor: pointer; }
+    .note summary::-webkit-details-marker { display: none; }
+    .note-title { color: var(--cool-ink); font: italic 400 19px/1.18 var(--serif); text-decoration: underline; text-decoration-color: rgba(35,72,76,.22); text-decoration-thickness: 4px; text-underline-offset: -1px; text-decoration-skip-ink: none; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+    .note::after { content: "↘"; position: absolute; right: 12px; bottom: 10px; color: var(--cool-ink); font: 17px/1 var(--sans); text-shadow: 0 0 9px rgba(79,129,132,.34); pointer-events: none; }
+    .note[open]::after { content: "↗"; }
+    .note.is-current { background: var(--cool-strong); animation: note-arrive .68s ease-out both; }
+    .note.is-current .note-title { text-decoration-color: rgba(35,72,76,.55); }
+    .note-body { padding: 0 15px 36px; color: #385457; font: 14px/1.55 var(--sans); }
+    .note-body p { margin: 0; }
+    .note[hidden], .notes[hidden] { display: none; }
+    @keyframes note-arrive {
+      0% { transform: translateY(0) rotate(0); }
+      22% { transform: translateY(-2px) rotate(-.45deg); }
+      50% { transform: translateY(0) rotate(.2deg); }
+      100% { transform: translateY(0) rotate(0); }
+    }
+    .image-pool { padding: 54px 0 78px; border-top: 1px solid var(--rule); }
+    .pool-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 27px; }
+    .pool-heading h2 { margin: 0; color: var(--plum); font: 400 clamp(30px, 4vw, 44px)/1.05 var(--serif); letter-spacing: -.04em; }
+    .pool-heading p { max-width: 480px; margin: 0; color: var(--muted); font: 14px/1.5 var(--sans); }
+    .pool-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px 26px; }
+    .pool-item { min-width: 0; margin: 0; }
+    .pool-item img { display: block; width: 100%; aspect-ratio: 1.58 / 1; object-fit: cover; background: #d8dfdc; }
+    .pool-item figcaption { display: flex; align-items: baseline; gap: 10px; margin-top: 10px; }
+    .pool-number { color: var(--cool-ink); font: 700 10px/1 var(--sans); letter-spacing: .12em; }
+    .pool-title { color: var(--ink); font: italic 19px/1.2 var(--serif); }
+    .selected-set { margin: 36px 0 0; padding: 18px 21px; color: var(--cool-ink); background: rgba(216,229,226,.62); border-left: 3px solid var(--warm-accent); font: 14px/1.55 var(--sans); }
+    .selected-set strong { color: var(--plum); }
+    .decision-point { padding: 30px 0 70px; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+    .decision-point p { margin: 0; color: var(--muted); font: 14px/1.55 var(--sans); }
+    .decision-point strong { color: var(--plum); font-weight: 650; }
+    @media (max-width: 900px) {
+      .topline, .hero, .reading, .image-pool, .decision-point { width: min(100% - 40px, 760px); }
+      .hero { grid-template-columns: 1fr; gap: 38px; padding: 54px 0 62px; }
+      .terms { min-height: auto; }
+      .article-layout { grid-template-columns: minmax(0, 1fr) 190px; gap: 34px; }
+      .essay { font-size: 19px; }
+      .essay .lead { font-size: 24px; }
+    }
+    @media (max-width: 650px) {
+      .topline, .hero, .reading, .image-pool, .decision-point { width: min(100% - 32px, 520px); }
+      .topline { min-height: 62px; }
+      .topnav { gap: 13px; }
+      .topnav a { font-size: 9px; }
+      .topnav a:nth-child(2) { display: none; }
+      .hero { padding: 46px 0 52px; }
+      h1 { font-size: clamp(48px, 13vw, 66px); }
+      .terms { display: none; }
+      .reading { padding: 42px 0 48px; }
+      .article-layout { display: block; }
+      .essay { font-size: 19px; }
+      .notes { display: grid; gap: 16px; margin-top: 28px; }
+      .note { position: relative; top: auto !important; }
+      .pool-heading { display: block; }
+      .pool-heading p { margin-top: 10px; }
+      .pool-grid { grid-template-columns: 1fr; gap: 25px; }
+      .decision-point { grid-template-columns: 1fr; gap: 14px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+
+    .article-layout {
+      grid-template-columns: minmax(0, 700px) minmax(0, 238px);
+      transition: grid-template-columns .72s cubic-bezier(.22,1,.36,1), gap .72s cubic-bezier(.22,1,.36,1);
+    }
+    [data-bts="off"] .article-layout { grid-template-columns: minmax(0, 700px) minmax(0, 0fr); gap: 0; }
+    .site-shelf { position: fixed; right: 14px; bottom: 14px; z-index: 30; width: max-content; max-width: calc(100vw - 24px); color: var(--ink); font-family: var(--sans); }
+    .shelf-bar { display: flex; min-height: 32px; align-items: stretch; overflow: hidden; border: 1px solid rgba(49,22,64,.16); border-radius: 2px 12px 2px 12px; background: rgba(245,241,232,.97); box-shadow: 0 3px 12px rgba(41,38,55,.10); backdrop-filter: blur(10px); }
+    .bts-toggle, .shelf-menu-toggle { position: relative; display: flex; align-items: center; justify-content: center; border: 0; color: var(--plum); background: transparent; cursor: pointer; }
+    .bts-toggle { min-width: 74px; justify-content: space-between; gap: 7px; padding: 0 8px; }
+    .bts-label { color: var(--plum); font: 700 9px/1 var(--sans); letter-spacing: .08em; }
+    .bts-switch { position: relative; display: block; flex: 0 0 27px; width: 27px; height: 15px; padding: 2px; border-radius: 10px; background: #a85e58; transition: background-color .22s ease; }
+    .bts-switch-knob { display: block; width: 11px; height: 11px; border-radius: 50%; background: var(--paper-white); box-shadow: 0 1px 2px rgba(0,0,0,.2); transform: translateX(0); transition: transform .24s cubic-bezier(.2,.7,.2,1); }
+    .bts-toggle[aria-checked="true"] .bts-switch { background: #54816c; }
+    .bts-toggle[aria-checked="true"] .bts-switch-knob { transform: translateX(12px); }
+    .shelf-menu-toggle { width: 32px; padding: 0; border-left: 1px solid rgba(49,22,64,.12); }
+    .shelf-menu-toggle svg { width: 13px; height: 13px; transition: transform .28s ease; }
+    .shelf-menu-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+    .bts-toggle:hover, .shelf-menu-toggle:hover { background: rgba(84,37,103,.06); }
+    .bts-toggle:focus-visible, .shelf-menu-toggle:focus-visible, .shelf-menu a:focus-visible { outline: 2px solid var(--warm-accent); outline-offset: -3px; }
+    .shelf-menu { position: absolute; right: 0; bottom: calc(100% - 1px); display: grid; gap: 12px; width: 218px; max-width: calc(100vw - 24px); padding: 14px 15px 15px; border: 1px solid rgba(49,22,64,.16); border-bottom: 0; border-radius: 13px 13px 0 0; background: rgba(245,241,232,.98); box-shadow: 0 -6px 18px rgba(41,38,55,.08); backdrop-filter: blur(10px); opacity: 0; visibility: hidden; transform: translateY(8px) scale(.985); transform-origin: bottom right; transition: opacity .22s ease, transform .28s cubic-bezier(.2,.7,.2,1), visibility 0s linear .28s; }
+    .site-shelf.is-open .shelf-menu { opacity: 1; visibility: visible; transform: translateY(0) scale(1); transition-delay: 0s; }
+    .shelf-menu-group { display: grid; gap: 10px; }
+    .shelf-menu-label { margin: 0; color: var(--muted); font-size: 9px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+    .shelf-menu a { color: var(--plum); font: 16px/1.15 var(--serif); text-decoration: none; }
+    .shelf-menu .shelf-icon-link { display: flex; align-items: center; gap: 9px; }
+    .shelf-menu .shelf-icon-link svg { width: 16px; height: 16px; flex: 0 0 16px; }
+    .shelf-menu a:hover { color: var(--cool-ink); text-decoration: underline; text-underline-offset: 3px; }
+    .shelf-socials { display: flex; align-items: center; gap: 9px; }
+    .shelf-socials a { display: grid; width: 27px; height: 27px; place-items: center; border-radius: 4px; }
+    .shelf-socials a:hover { background: rgba(84,37,103,.08); }
+    .shelf-socials img { display: block; width: 20px; height: 20px; object-fit: contain; }
+    .shelf-socials svg { display: block; width: 19px; height: 19px; }
+    .shelf-rule { height: 1px; background: rgba(49,22,64,.12); }
+    @media (max-width: 650px) { .site-shelf { right: 12px; bottom: 12px; } }
+    .essay .note-slot { display: none; }
+    .essay .afterword { margin-top: 3.6em; padding-top: 1.8em; border-top: 1px solid var(--rule); }
+    .essay .afterword h2 { margin: 0 0 1.1em; color: var(--plum); font: 400 32px/1.05 var(--serif); letter-spacing: -.035em; }
+    .essay-art { margin: 2.8em 0 3.2em; }
+    .essay-art img { border: 0; outline: 0; border-radius: 2px 48px 2px 2px; }
+    .notes {
+      min-height: 100%; overflow: hidden; opacity: 1; transform: translateX(0) scaleX(1); transform-origin: right center;
+      transition: opacity .28s ease .1s, transform .72s cubic-bezier(.22,1,.36,1), visibility 0s linear 0s;
+    }
+    [data-bts="off"] .notes { opacity: 0; transform: translateX(12px) scaleX(.82); visibility: hidden; pointer-events: none; transition: opacity .2s ease, transform .72s cubic-bezier(.22,1,.36,1), visibility 0s linear .72s; }
+    .note {
+      position: absolute; left: 0; width: 100%; margin: 0; padding: 0; color: var(--cool-ink);
+      background: transparent; border: 0; border-radius: 0; pointer-events: auto;
+      transition: top .34s cubic-bezier(.22,1,.36,1), color .2s ease;
+    }
+    .note summary { position: relative; isolation: isolate; display: flex; min-height: 0; align-items: flex-start; gap: 10px; padding: 5px 7px; list-style: none; cursor: pointer; }
+    .note summary::before { position: absolute; z-index: -1; inset: -7px -11px; border-radius: 50%; background: radial-gradient(ellipse at 23% 48%, rgba(176,204,199,.86), rgba(176,204,199,.48) 48%, rgba(176,204,199,0) 83%); content: ""; opacity: 0; transform: scale(.72); transform-origin: 24% 50%; transition: opacity .4s ease, transform .55s cubic-bezier(.2,.7,.2,1); pointer-events: none; }
+    .note.is-current summary::before { opacity: .82; transform: scale(1); animation: note-focus-bloom 1.05s cubic-bezier(.2,.7,.2,1) both; }
+    .note.is-current summary { filter: drop-shadow(0 3px 8px rgba(84,37,103,.12)); }
+    .note summary { transition: filter .35s ease; }
+    .note-quest-mark { position: absolute; top: -25px; left: 12px; color: #a8752b; font: 700 italic 19px/.9 var(--serif); text-shadow: 0 1px 0 var(--paper-white), 0 0 9px rgba(223,189,114,.38); opacity: 0; transform: translateY(6px) scale(.72); transform-origin: center bottom; transition: opacity .18s ease; pointer-events: none; }
+    .note.is-current .note-quest-mark { animation: quest-mark-arrive .64s cubic-bezier(.2,.7,.2,1) both; }
+    .note summary::-webkit-details-marker { display: none; }
+    .note-copy { flex: 1; }
+    .note-disclosure { flex: 0 0 13px; width: 13px; height: 13px; margin: 3px 1px 0 auto; color: #667b7d; transition: transform .24s ease, color .2s ease; }
+    .note[open] .note-disclosure { color: var(--plum); transform: rotate(180deg); }
+    .note-art { flex: 0 0 37px; width: 37px; height: 43px; margin-top: 2px; object-fit: cover; border-radius: 2px 13px 2px 9px; outline: 1px solid rgba(35,72,76,.18); transition: filter .3s ease, box-shadow .3s ease; }
+    .note-copy { display: block; min-width: 0; }
+    .note-title { display: block; color: var(--plum); font: italic 400 17px/1.13 var(--serif); text-decoration: none; text-shadow: 0 0 0 transparent; transition: color .34s ease, text-shadow .34s ease; }
+    .note-teaser { display: block; margin-top: 4px; color: #53666a; font: 11px/1.42 var(--sans); }
+    .note[open] .note-title, .note.is-current .note-title { color: var(--cool-ink); }
+    .note.is-current { background: transparent; animation: none; }
+    .note.is-current .note-art { animation: note-attention .92s ease-out both; }
+    .note.is-current .note-title { text-decoration: none; text-shadow: 0 0 12px rgba(84,37,103,.16); }
+    @keyframes note-attention {
+      0%, 100% { filter: saturate(1); box-shadow: 0 0 0 0 rgba(84,37,103,0); }
+      38% { filter: saturate(1.22); box-shadow: 0 0 0 3px rgba(84,37,103,.13); }
+      72% { filter: saturate(1.04); box-shadow: 0 0 0 1px rgba(84,37,103,.06); }
+    }
+    @keyframes note-focus-bloom {
+      0% { opacity: 0; transform: scale(.72); }
+      42% { opacity: 1; transform: scale(1.07); }
+      100% { opacity: .82; transform: scale(1); }
+    }
+    @keyframes quest-mark-arrive {
+      0% { opacity: 0; transform: translateY(7px) scale(.72); }
+      56% { opacity: 1; transform: translateY(-3px) scale(1.12); }
+      78% { opacity: .94; transform: translateY(1px) scale(.97); }
+      100% { opacity: .94; transform: translateY(0) scale(1); }
+    }
+    .note-body { margin: 8px 0 0 47px; padding: 0 0 7px; color: #42585b; font: 12px/1.5 var(--sans); }
+    .note-body p { margin: 0; }
+    .note::after { content: none; }
+    @media (max-width: 900px) { .article-layout { grid-template-columns: minmax(0, 1fr) 205px; gap: 32px; } .essay { font-size: 19px; } }
+    @media (max-width: 650px) {
+      .article-layout { display: block; }
+      .notes { display: grid; position: static; gap: 18px; min-height: 0 !important; margin-top: 30px; }
+      .note { position: relative; top: auto !important; }
+      .note-slot:not(:empty) { display: block; margin: -1em 0 1.4em; }
+      .note-slot .note { margin: 0; }
+      .note-body { max-width: 430px; }
+    }
+  </style>
   </head>
-  <body>
-    <a class="skip-link" href="#article">Skip to article</a>
-    <div class="site-shell">
-      <header class="masthead">
-        <a class="wordmark" href="../index.html">EJ Moreland</a>
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation"><span>Menu</span><span aria-hidden="true">+</span></button>
-        <nav id="site-navigation" aria-label="Primary navigation">
-          <a href="index.html">Essays</a>
-          <a href="../about/">About</a>
-        </nav>
-      </header>
-      <main id="article">
-        <article class="reading-proof published-article" aria-labelledby="article-title">
-          <div class="reading-meta">
-            <a href="index.html">← Essays</a>
-            <button class="reading-mode" type="button" aria-pressed="false">Dim the page</button>
+<body>
+  <div id="page" data-bts="on">
+    <aside class="site-shelf" aria-label="Quick actions">
+      <div class="shelf-menu" id="shelf-menu" aria-hidden="true" inert>
+        <div class="shelf-menu-group">
+          <p class="shelf-menu-label">On this essay</p>
+          <a href="#afterword-title">Go to the Afterword</a>
+          <a class="shelf-icon-link" href="#top" aria-label="Back to the beginning" title="Back to the beginning"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5m-6 6 6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <div class="shelf-rule" aria-hidden="true"></div>
+        <div class="shelf-menu-group">
+          <p class="shelf-menu-label">Elsewhere</p>
+          <div class="shelf-socials">
+            <a href="https://www.linkedin.com/in/ej-moreland-a79a42" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><img src="../assets/linkedin-in-opaque-white.png" alt=""></a>
+            <a href="../about/?message=1#contact-form" aria-label="Contact EJ" title="Contact EJ"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 5.5h17v13h-17zM4 6l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
-          <header class="reading-column article-heading">
-            <p class="issue-label">Essay · EJ Moreland · September 10, 2026</p>
-            <h1 id="article-title">Learning Where My Judgment Stops</h1>
-          </header>
-          <div class="reading-column article-body">
-            <p class="article-copy">After I was laid off, I kept circling an itch I could not quite name.</p>
+        </div>
+      </div>
+      <div class="shelf-bar">
+        <button class="bts-toggle" type="button" role="switch" aria-checked="true" aria-label="Behind-the-scenes layer"><span class="bts-label">BTS</span><span class="bts-switch" aria-hidden="true"><span class="bts-switch-knob"></span></span></button>
+        <button class="shelf-menu-toggle" type="button" aria-expanded="false" aria-controls="shelf-menu" aria-label="Open quick actions">
+          <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="m3 6 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </aside>
+<header class="masthead">
+      <div class="topline">
+        <a class="wordmark" href="#top">EJ Moreland</a>
+        <span class="visually-hidden reader-signal" data-feedback-summary data-article-slug="learning-where-my-judgment-stops" aria-live="polite">Reader response loading…</span>
+        <nav class="topnav" aria-label="Article navigation">
+          <a href="#reading" aria-label="Reading layer" title="Reading layer"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 5.5c3.2-.8 6-.2 8.5 1.5v13c-2.5-1.7-5.3-2.3-8.5-1.5zM20.5 5.5c-3.2-.8-6-.2-8.5 1.5v13c2.5-1.7 5.3-2.3 8.5-1.5z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></a>
+          <a href="#afterword-title">Afterword</a>
+        </nav>
+      </div>
+      <div class="hero" id="top">
+        <div>
+          <p class="issue">Essay · EJ Moreland · September 10, 2026</p>
+          <h1>Learning Where My Judgment Stops</h1>
+          <p class="dek">A personal investigation into what it means to remain responsible for decisions when AI helps generate questions, find evidence, challenge conclusions, and cross expertise boundaries the human collaborator cannot fully evaluate alone.</p>
+        </div>
+        <div class="terms" aria-label="The article asks whether AI-supported information is current, authoritative, complete, and connected to reality.">
+          <p class="terms-label">What would make a result dependable?</p>
+          <span class="term">current</span>
+          <span class="term">authoritative</span>
+          <span class="term">complete</span>
+          <span class="term">connected</span>
+        </div>
+      </div>
+    </header>
+
+
+    <main>
+      <section class="reading" id="reading" aria-label="Full article with optional behind-the-scenes layer">
+        <p class="section-label">Learning Where My Judgment Stops</p>
+        <div class="article-layout">
+          <article class="essay" aria-label="Full article">
+            <p class="article-copy lead">After I was laid off, I kept circling an itch I could not quite name.</p>
             <p class="article-copy">AI was becoming capable of doing more kinds of work, quickly. But I could not see clearly what had to exist between a model doing something impressive and a business being able to rely on it. What made an AI-supported decision trustworthy enough to act on? How did a system know whether its information was current, authoritative, complete, or connected to what was actually happening?</p>
             <p class="article-copy">I did not begin with a product thesis or a claim that I had found a new problem. I had a pattern I wanted to understand.</p>
             <p class="article-copy">So I started exploring it with ChatGPT. We followed questions about evidence, current state, provenance, authority, exceptions, and what happens when an AI makes a perfectly reasonable decision from an incomplete picture of reality.</p>
             <p class="article-copy">The deeper we looked, the more of that territory turned out to be established work with existing names: data governance, workflow systems, business rules, process management, human factors, and decision support. The possible business ideas that emerged along the way got smaller, more crowded, or less credible.</p>
             <p class="article-copy">The research was doing its job.</p>
+<figure class="essay-art"><img src="../assets/article-1-stagecraft.jpg" alt="A painted theatrical landscape sits beside its exposed backstage structure and daylight."><figcaption>The set, and what holds it up</figcaption></figure>
             <p class="article-copy">But it eventually raised a different question: if the same AI was helping me generate the questions, find the prior art, attack the ideas, interpret what survived, and identify the next thing to explore, how independent was the process?</p>
             <p class="article-copy">I started treating each new idea as something that needed to survive research, not just make sense in the conversation.</p>
             <p class="article-copy">One of the rules I adopted early was simple: new to me did not mean new. When something looked promising, we went looking for the people who had already studied it, the products already addressing it, and the terminology I did not know yet.</p>
@@ -66,7 +314,8 @@
             <p class="article-copy">The process had done a lot of what I wanted it to do. I started with questions I did not know how to frame, learned the language of fields I had never worked in, found research I would not have known to look for, and abandoned ideas as I learned more about the territory.</p>
             <p class="article-copy">My claims were getting narrower. I knew more of the prior art. I was getting better at separating an interesting problem from a business opportunity, and more explicit about where my own knowledge stopped.</p>
             <p class="article-copy">Those were concrete signs of progress. They were also part of why I trusted the process.</p>
-            <p class="article-copy">What I had not asked was what, exactly, they gave me reason to trust.</p>
+            <p class="article-copy"><span class="paired" id="anchor-one">What I had not asked was what, exactly, they gave me reason to trust.</span></p>
+<div class="note-slot" data-note-slot="anchor-one"></div>
             <p class="article-copy">ChatGPT could argue against an idea it had helped me develop. It could find evidence that weakened its earlier assessment. It could tell me that a business case no longer held up and explain why.</p>
             <p class="article-copy">Those were useful checks. But they were still happening inside the same collaboration.</p>
             <p class="article-copy">I had made the process more adversarial. I had not necessarily made it more independent.</p>
@@ -95,8 +344,10 @@
             <p class="article-copy">Seeing the problem did not make me want to use AI less.</p>
             <p class="article-copy">It made me more deliberate about what I was asking it to do.</p>
             <p class="article-copy">The useful distinction for me became less about which tasks belonged to the human and which belonged to the AI, and more about where the process needed another basis for judgment.</p>
-            <p class="article-copy">Sometimes that means creating separation from the collaboration, but separation by itself is not the point. What matters is whether the check has a meaningful chance of exposing something the existing process could miss.</p>
+            <p class="article-copy"><span class="paired" id="anchor-two">Sometimes that means creating separation from the collaboration, but separation by itself is not the point.</span> What matters is whether the check has a meaningful chance of exposing something the existing process could miss.</p>
+<div class="note-slot" data-note-slot="anchor-two"></div>
             <p class="article-copy">That can take different forms. I can leave the conversation and inspect the underlying source. I can test a claim against something observable in the real world. I can ask someone with relevant expertise to challenge an assumption I am not qualified to evaluate myself.</p>
+<figure class="essay-art"><img src="../assets/article-1-proof.jpg" alt="A printmaker's carved block and repeated impressions beside a window overlooking the coast."><figcaption>The proof, and the thing it came from</figcaption></figure>
             <p class="article-copy">Another model can still be useful. Giving the work to a model that did not participate in developing it can reduce some of the influence of the original conversational history and expose assumptions that became invisible inside it.</p>
             <p class="article-copy">That is contextual distance, not independent verification. The new model may share many of the same limitations, assumptions, or sources as the first. When the question can be checked against a primary source, relevant expertise, a test, or an observable result, those provide a different basis for judgment.</p>
             <p class="article-copy">The distinction matters because these checks are doing different jobs. A fresh model may help me see the work differently. It does not, simply by being separate, tell me whether the work is right.</p>
@@ -129,7 +380,8 @@
               <p class="article-copy">The article you just read is not the article I originally wrote.</p>
               <p class="article-copy">An early draft went to someone I trust for feedback. His criticism exposed weaknesses I had not seen, including one that eventually changed the argument itself: I was thinking carefully about challenging AI output, but not carefully enough about what it meant to rely on AI to help me cross expertise gaps I could not fully evaluate on my own.</p>
               <p class="article-copy">The rewrite that followed became substantial enough that I started treating the article as another test of the idea I was writing about.</p>
-              <p class="article-copy">I gave versions of the argument to people and models that had not participated in developing it. I wanted the work to encounter criticism without carrying along the history of the conversation that had made the argument persuasive to me in the first place.</p>
+              <p class="article-copy"><span class="paired" id="anchor-three">I gave versions of the argument to people and models that had not participated in developing it.</span> I wanted the work to encounter criticism without carrying along the history of the conversation that had made the argument persuasive to me in the first place.</p>
+<div class="note-slot" data-note-slot="anchor-three"></div>
               <p class="article-copy">Some of that criticism changed the article. Some did not survive when I looked more closely at what it was claiming.</p>
               <p class="article-copy">One experiment was especially useful. I tried making a separate model more explicitly adversarial, expecting stronger criticism. It certainly became more skeptical. The criticism did not necessarily become better.</p>
               <p class="article-copy">That was a useful reminder that critical-sounding is not the same as independent, and independent is not the same as correct.</p>
@@ -137,12 +389,139 @@
               <p class="article-copy">What they did was give the article a chance to encounter something that had not helped create it.</p>
               <p class="article-copy">The article changed because of what survived.</p>
             </section>
-            <p class="end-mark" aria-label="End of article">✦</p>
-          </div>
-        </article>
-      </main>
-      <footer><span>EJ Moreland</span><span>Essay 01</span></footer>
-    </div>
-    <script src="../script.js"></script>
-  </body>
-</html>
+            <section class="article-feedback" data-article-slug="learning-where-my-judgment-stops" aria-labelledby="feedback-title">
+              <p class="eyebrow">Reader response</p>
+              <h2 id="feedback-title">What did you think?</h2>
+                <p class="feedback-context">A quick signal is enough. You can change your selection later from this browser.</p>
+              <div class="feedback-actions" role="group" aria-label="Rate Learning Where My Judgment Stops">
+                <button class="feedback-button" type="button" data-vote="1" aria-label="Thumbs up" aria-pressed="false" disabled><span class="feedback-icon" aria-hidden="true">👍</span><span class="visually-hidden">Thumbs up</span></button>
+                <button class="feedback-button" type="button" data-vote="-1" aria-label="Thumbs down" aria-pressed="false" disabled><span class="feedback-icon" aria-hidden="true">👎</span><span class="visually-hidden">Thumbs down</span></button>
+              </div>
+              <p class="feedback-status" role="status" aria-live="polite"></p>
+              <p class="feedback-message">Want to say more? <a href="../about/?message=1#contact-form">Message EJ →</a></p>
+            </section>
+          </article>
+
+          <aside class="notes" aria-label="Behind-the-scenes notes">
+            <details class="note" data-anchor="anchor-one">
+              <summary><img class="note-art" src="../assets/article-1-shadow.jpg" alt="" aria-hidden="true" style="object-position: 66% 48%"><span class="note-copy"><span class="note-title">A reader changed the question</span><span class="note-teaser">Outside feedback exposed an expertise gap.</span></span><svg class="note-disclosure" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="m3 6 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="note-quest-mark" aria-hidden="true">?</span></summary>
+              <div class="note-body"><p>An early draft went to someone whose judgment I trust. His feedback pointed to a gap in my argument: I had questioned how I challenged AI output, but not what it meant to rely on AI across areas I could not yet evaluate. That changed the question the article needed to answer.</p></div>
+            </details>
+            <details class="note" data-anchor="anchor-two">
+              <summary><img class="note-art" src="../assets/article-1-armillary.jpg" alt="" aria-hidden="true" style="object-position: 14% 48%"><span class="note-copy"><span class="note-title">Separation was carrying too much weight</span><span class="note-teaser">The useful test was whether a check could find what the process missed.</span></span><svg class="note-disclosure" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="m3 6 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="note-quest-mark" aria-hidden="true">?</span></summary>
+              <div class="note-body"><p>Review made me see that I was treating distance from the original collaboration as the safeguard. That was too simple. I revised the argument to ask whether a check had a meaningful chance of exposing something the process could miss. A fresh model can add contextual distance; a source, relevant expertise, a test, or an observable result can offer a different basis for judgment.</p></div>
+            </details>
+            <details class="note" data-anchor="anchor-three">
+              <summary><img class="note-art" src="../assets/article-1-proof.jpg" alt="" aria-hidden="true" style="object-position: 48% 72%"><span class="note-copy"><span class="note-title">Blind had a caveat</span><span class="note-teaser">One review lacked project history, but its rubric still named familiar concerns.</span></span><svg class="note-disclosure" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="m3 6 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="note-quest-mark" aria-hidden="true">?</span></summary>
+              <div class="note-body"><p>I first treated one review as context-blind because the reviewer had not seen our project history. Then I noticed the rubric itself named many concerns we had already been discussing. That condition could not show that the reviewer had found those issues on its own. The unseeded first-reader review was a cleaner test, though a single exploratory response still could not establish a general pattern.</p></div>
+            </details>
+          </aside>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script>
+    (() => {
+      const page = document.getElementById("page");
+      const rail = page.querySelector(".notes");
+      const notes = [...page.querySelectorAll(".note")];
+      const anchors = [...page.querySelectorAll(".paired")];
+      let currentAnchor = null;
+      let layoutFrame = 0;
+
+      function layoutNotes() {
+        if (matchMedia("(max-width: 650px)").matches) {
+          rail.style.minHeight = "";
+          notes.forEach(note => { note.style.top = ""; });
+          return;
+        }
+        const railTop = rail.getBoundingClientRect().top;
+        let priorBottom = -22;
+        notes.forEach(note => {
+          const anchor = document.getElementById(note.dataset.anchor);
+          const rect = anchor.getBoundingClientRect();
+          const closedHeight = note.querySelector("summary").getBoundingClientRect().height;
+          const ideal = rect.top + rect.height / 2 - railTop - closedHeight / 2;
+          const top = Math.max(0, ideal, priorBottom + 26);
+          note.style.top = top + "px";
+          priorBottom = top + note.getBoundingClientRect().height;
+        });
+        rail.style.minHeight = Math.max(page.querySelector(".essay").offsetHeight, priorBottom) + "px";
+      }
+
+      function scheduleLayoutNotes() {
+        if (layoutFrame) return;
+        layoutFrame = requestAnimationFrame(() => {
+          layoutFrame = 0;
+          layoutNotes();
+        });
+      }
+
+      function applyFocus() {
+        anchors.forEach(anchor => anchor.classList.toggle("is-current", page.dataset.bts === "on" && anchor.id === currentAnchor));
+        notes.forEach(note => note.classList.toggle("is-current", page.dataset.bts === "on" && note.dataset.anchor === currentAnchor));
+      }
+
+      notes.forEach(note => {
+        note.addEventListener("toggle", () => {
+          if (note.open) notes.forEach(other => { if (other !== note) other.open = false; });
+          scheduleLayoutNotes();
+        });
+        note.addEventListener("click", event => {
+          if (event.target.closest("summary")) return;
+          note.open = !note.open;
+        });
+      });
+
+      window.addEventListener("resize", scheduleLayoutNotes, { passive: true });
+      window.addEventListener("load", scheduleLayoutNotes, { once: true });
+      if (document.fonts?.ready) document.fonts.ready.then(scheduleLayoutNotes);
+      if ("ResizeObserver" in window) {
+        new ResizeObserver(scheduleLayoutNotes).observe(page.querySelector(".essay"));
+      }
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => { entry.target.dataset.focus = entry.isIntersecting ? "1" : "0"; });
+        const focused = anchors.filter(anchor => anchor.dataset.focus === "1")
+          .sort((a,b) => Math.abs(a.getBoundingClientRect().top + a.offsetHeight/2 - innerHeight*.48) - Math.abs(b.getBoundingClientRect().top + b.offsetHeight/2 - innerHeight*.48))[0];
+        currentAnchor = focused?.id || null;
+        applyFocus();
+      }, { rootMargin: "-42% 0px -42% 0px", threshold: 0 });
+      anchors.forEach(anchor => observer.observe(anchor));
+
+      const toggle = page.querySelector(".bts-toggle");
+      const shelf = page.querySelector(".site-shelf");
+      const menuToggle = page.querySelector(".shelf-menu-toggle");
+      const menu = page.querySelector(".shelf-menu");
+      function setMenuOpen(open) {
+        shelf.classList.toggle("is-open", open);
+        menuToggle.setAttribute("aria-expanded", String(open));
+        menuToggle.setAttribute("aria-label", open ? "Close quick actions" : "Open quick actions");
+        menu.setAttribute("aria-hidden", String(!open));
+        menu.inert = !open;
+      }
+      menuToggle.addEventListener("click", () => setMenuOpen(menuToggle.getAttribute("aria-expanded") !== "true"));
+      menu.querySelectorAll("a").forEach(link => link.addEventListener("click", () => setMenuOpen(false)));
+      document.addEventListener("click", event => {
+        if (!shelf.contains(event.target)) setMenuOpen(false);
+      });
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
+          setMenuOpen(false);
+          menuToggle.focus();
+        }
+      });
+      toggle.addEventListener("click", () => {
+        const on = page.dataset.bts !== "on";
+        page.dataset.bts = on ? "on" : "off";
+        toggle.setAttribute("aria-checked", String(on));
+        rail.hidden = false;
+        notes.forEach(note => { note.open = false; });
+        applyFocus();
+        scheduleLayoutNotes();
+      });
+      scheduleLayoutNotes();
+    })();
+  </script>
+<script src="../script.js?rev=20260927-site-consistency"></script>
+  <script type="module" src="../article-feedback.js"></script>
+</body>
